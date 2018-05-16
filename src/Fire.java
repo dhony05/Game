@@ -30,6 +30,7 @@ public class Fire extends Sprite
       fires.setLocation(x + (150+ r) * unit_vx, y + (220 + r) * unit_vy) ;
       fires.setVelocity(vx, vy);
       fires.Firing(FIRE);
+   
 
       }
       

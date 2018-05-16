@@ -21,16 +21,14 @@ public class Dragon extends Sprite
       double vx = 10 * unit_vx;
       double vy = .1 * unit_vy;
       
-     // for(int i = 0; i< fires.length;i++){
       if(current == fires.length) current =0;
       fires[current].setLocation(x + 150 * unit_vx, y + 220 * unit_vy) ;
       fires[current].setVelocity(vx, vy);
-     // fire[i].Firing(FIRE);
-      isShooting = false;
+       isFiring = true;
       // attach the fire to the dragon 
       }
       
-     // moving = false; 
+
    }
  
 

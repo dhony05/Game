@@ -12,6 +12,7 @@ public class Sprite extends Rect
    boolean moving = false;
    boolean isShooting = false;
    boolean isFlaming = false;
+   boolean isFiring = false;
 
    static final int LEFT   = 0;
    static final int RIGHT  = 0;
@@ -24,6 +25,7 @@ public class Sprite extends Rect
    static final int DAMAGEDONE = 2;
    static final int NORMAL = 0;
    static final int DESTROYED = 1;
+   static final int WALK = 2;
 
    int pose = LEFT;
    int gPose = RIGHT;
@@ -44,7 +46,7 @@ public class Sprite extends Rect
    public void moveUpBy(int dy)
    {
       y -= dy;
-      
+      isShooting = false;
       moving = true;
 
       pose = UP;
@@ -54,6 +56,7 @@ public class Sprite extends Rect
       y += dy;
 
       moving = true;
+      isShooting = false;
 
       pose = DOWN;
    }
@@ -62,6 +65,7 @@ public class Sprite extends Rect
       x -= dx;
 
       moving = true;
+      isShooting = false;
 
      // pose = LEFT;
    }
@@ -73,6 +77,7 @@ public class Sprite extends Rect
       moving = true;
 
       pose = RIGHT;
+      isShooting = false;
    }
    public void Atack(int dx){
 	  // moving = true;
@@ -84,6 +89,7 @@ public class Sprite extends Rect
 	   moving = true;
 	   isShooting= false;
 	   pose = FIRE;
+	   isFiring = true;
 	   
    }
    public void showDamage(int dx){
@@ -108,8 +114,12 @@ public class Sprite extends Rect
 	   moving = false;
 	   gPose = ATTACKing;
    }
+   public void stand(){
+	   moving = false;
+	   pose = WALK;
+   }
    public void WalkingGobling(int dx){
-	   x -= dx;
+	   x += dx;
 	   moving = true;
 	   gPose = WALKing;
    }
@@ -128,6 +138,7 @@ public class Sprite extends Rect
       
 
       g.setColor(Color.red);
+     // super.draw(g);
       if (selected) g.drawLine((int)x+8, (int)y+h, (int)x+w-5, (int)y+h);
       g.setColor(Color.black);
 

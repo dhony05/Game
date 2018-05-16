@@ -7,7 +7,7 @@
  */
 public class Goblin extends Sprite{
 
-	 static String[] action = {"walk", "attack"};
+	 static String[] action = {"run", "attack","walk"};
 
 	   public Goblin(int x, int y)
 	   {
